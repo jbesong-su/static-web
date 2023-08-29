@@ -22,8 +22,11 @@ jobs:
           role-to-assume: arn:aws:iam::860349225702:role/s3-oidc-role
           aws-region: ${{ env.AWS_REGION }}
           role-session-name: samplerolesession
+
+        - name: build react App
+          run: | 
+            cd my-static-sit && yarn install && yarn build
       # Upload a file to AWS s3
       - name:  Copy index.html to s3
         run: |
-          aws s3 cp ./index.html s3://${{ env.BUCKET_NAME }}/
-          aws s3 cp ./cover.css s3://${{ env.BUCKET_NAME }}/
+          aws s3 cp --recursive ./my-static-site/public/* s3://${{ env.BUCKET_NAME }}/
