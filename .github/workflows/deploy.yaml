@@ -23,9 +23,11 @@ jobs:
           aws-region: ${{ env.AWS_REGION }}
           role-session-name: samplerolesession
 
-        - name: build react App
-          run: | 
-            cd my-static-sit && yarn install && yarn build
+        # Build React app to generate public directory for static web
+      - name: build react App
+        run: | 
+          cd my-static-sit && yarn install && yarn build
+
       # Upload a file to AWS s3
       - name:  Copy index.html to s3
         run: |
