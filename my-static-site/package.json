@@ -1,6 +1,6 @@
 {
   "name": "my-static-site",
-  "homepage": "jpbesong.com",
+  "homepage": "http://jpbesong.com",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
